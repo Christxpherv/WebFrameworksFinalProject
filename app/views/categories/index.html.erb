@@ -1,11 +1,14 @@
+<%# clickable to sort the categories by their name %>
+<%= link_to "Sort by Name", "#sorted", id: "sortByName", class: "sort-link" %>
+
 <%# create a table of the categories, resembling an actual database  %>
 <table class="categories-table">
   <thead>
     <tr>
       <%# categories/columns %>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th> 
+      <th class="sortable">Name</th>
+      <th class="sortable">Description</th>
+      <th class="sortable">Status</th> 
     </tr>
   </thead>
   <tbody>
@@ -19,3 +22,27 @@
     <% end %>
   </tbody>
 </table>
+
+<%# include the jQuery library from google %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // event listener for a click action
+  $('#sortByName').on('click', function(e) {
+    e.preventDefault(); 
+    // select the table with class 'categories-table'
+    const table = $('.categories-table');
+    // get all the rows in the table body
+    const rows = table.find('tbody > tr').get();
+    // sort the rows based on the text in the first cell 
+    rows.sort((a, b) => {
+      const aName = $(a).find('td').eq(0).text(); 
+      const bName = $(b).find('td').eq(0).text(); 
+      // compare the names of the categories and sort them in ascending order
+      return aName.localeCompare(bName); 
+    });
+    // empty the table body and append the sorted rows
+    table.find('tbody').empty().append(rows);
+  });
+});
+</script>
