@@ -1,0 +1,25 @@
+/* categories table */
+.categories-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* styles for table header and data cells */
+  .categories-table th, .categories-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* styles for table header */
+  .categories-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* hover effect for table rows */
+  .categories-table tbody tr:hover {
+    background-color: #f0f0f0;
+  }
+  

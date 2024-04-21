@@ -1,21 +1,20 @@
-
-<%# create a table of the products and it's categories, like an actual database  %>
-<table>
+<%# create a table of the categories, resembling an actual database  %>
+<table class="categories-table">
   <thead>
     <tr>
-         <%# categories/columns %>
+      <%# categories/columns %>
       <th>Name</th>
       <th>Description</th>
       <th>Status</th> 
     </tr>
   </thead>
   <tbody>
-    <%# iterate through the data in products and get its attributes to create a row %>
+    <%# iterate through the data in categories and get its attributes to create a row %>
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><%= category.status ? true : false %></td>
+        <td><%= category.status ? "Active" : "Inactive" %></td>
       </tr>
     <% end %>
   </tbody>
