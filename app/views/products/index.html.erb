@@ -1,11 +1,11 @@
-<%# clickable to sort the products by their name linked to an ID that i'm going to implement later %>
-<%= link_to "Sort by Name", "#", id: "sortByName" %>
+<%# clickable to sort the products by their name linked to an ID that I'm going to implement later %>
+<%= link_to "Sort by Name", "#", id: "sortByName", class: "sort-link" %>
 
-<%# create a table of the products and it's categories, like an actual database  %>
-<table>
+<%# create a table of the products and its categories, like an actual database  %>
+<table class="products-table">
   <thead>
     <tr>
-    <%# categories %>
+      <%# categories %>
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
