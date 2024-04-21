@@ -1,14 +1,14 @@
-<%# clickable to sort the products by their name linked to an ID that I'm going to implement later %>
-<%= link_to "Sort by Name", "#", id: "sortByName", class: "sort-link" %>
+<%# clickable to sort the products by their price %>
+<%= link_to "Sort by Price", "#", id: "sortByPrice", class: "sort-link" %>
 
 <%# create a table of the products and its categories, like an actual database  %>
 <table class="products-table">
   <thead>
     <tr>
       <%# categories %>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantity</th>
+      <th class="sortable">Name</th>
+      <th class="sortable">Price</th>
+      <th class="sortable">Quantity</th>
     </tr>
   </thead>
   <tbody>
@@ -22,3 +22,34 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+  $(document).ready(function() {
+    // event listener for the click action 
+    $('#sortByPrice').on('click', function(e) {
+      e.preventDefault(); 
+      
+      // notify the console that the link was clicked (for debugging purposes)
+      console.log("Sort by Price link clicked."); 
+      
+      // get the table and its rows
+      const table = $('.products-table');
+      const rows = table.find('tbody > tr').get();
+
+      // sort the rows by the price of the product
+      rows.sort((a, b) => {
+        const aValue = parseFloat($(a).find('td').eq(1).text()); 
+        const bValue = parseFloat($(b).find('td').eq(1).text()); 
+        // notify the console of the values of the products
+        console.log("aValue:", aValue);
+        console.log("bValue:", bValue);
+        // sort the products by their price in ascending order
+        return aValue - bValue;
+      });
+
+      table.find('tbody').empty().append(rows);
+    });
+  });
+</script>
+
+
