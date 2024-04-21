@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Our Store</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Welcome to The Electronics Store!</h1>
+    <div class="options">
+      <a href="<%= products_path %>" class="option">View Products</a>
+      <a href="<%= categories_path %>" class="option">View Categories</a>
+    </div>
+  </div>
+</body>
+</html>

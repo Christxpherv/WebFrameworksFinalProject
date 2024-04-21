@@ -1,0 +1,44 @@
+/* importing Bootstrap styles */
+@import "bootstrap/scss/bootstrap";
+
+/* set base styles for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* styling for the main container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* styling for the main heading */
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* styling for the options */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* styling for individual option */
+.option {
+  padding: 15px 30px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: #0056b3;
+}
