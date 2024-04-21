@@ -1,2 +1,22 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+
+<%# create a table of the products and it's categories, like an actual database  %>
+<table>
+  <thead>
+    <tr>
+         <%# categories/columns %>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <%# iterate through the data in products and get its attributes to create a row %>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.description %></td>
+        <td><%= category.status ? true : false %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

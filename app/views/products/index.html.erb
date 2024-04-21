@@ -1,14 +1,18 @@
+<%# clickable to sort the products by their name linked to an ID that i'm going to implement later %>
 <%= link_to "Sort by Name", "#", id: "sortByName" %>
 
+<%# create a table of the products and it's categories, like an actual database  %>
 <table>
   <thead>
     <tr>
+    <%# categories %>
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
     </tr>
   </thead>
   <tbody>
+    <%# iterate through the data in products and get its attributes to create a row %>
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
