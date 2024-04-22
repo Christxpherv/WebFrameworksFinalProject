@@ -41,3 +41,9 @@
       const table = $('.products-table');
       // get all the rows in the table body
       const rows = table.find('tbody > tr').get();
+
+      // sort the rows based on the selected attribute where a and b are the rows
+      rows.sort((a, b) => {
+        // get the value of the attribute for the current row
+        const aValue = $(a).find('td').eq(getColumnIndex(attribute)).text();
+        const bValue = $(b).find('td').eq(getColumnIndex(attribute)).text();
