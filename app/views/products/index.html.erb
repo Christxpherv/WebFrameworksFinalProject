@@ -48,8 +48,9 @@
         const aValue = $(a).find('td').eq(getColumnIndex(attribute)).text();
         const bValue = $(b).find('td').eq(getColumnIndex(attribute)).text();
 
-        // sort alphabetically for string attributes
-        return isNaN(aValue) ? aValue.localeCompare(bValue)
+        // sort alphabetically for string attributes, numerically for numeric attributes
+        return isNaN(aValue) ? aValue.localeCompare(bValue) : parseFloat(aValue) - parseFloat(bValue);
+      });
 
       // empty the tbody and append the sorted rows
       table.find('tbody').empty().append(rows);
