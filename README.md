@@ -24,7 +24,7 @@ For the validations of each attribute and their respective data type, I'm going 
 
 Regarding sorting or searching, I think sorting the data would be more beneficial to implement because most websites allow the users to sort the data by their price. So, for the products model and html page, I plan on implementing a sort function that is capable of sorting based on price, in ascending order. No current plans for the category model.
 
-**Updates:** I made it so that the sort feature can sort based on whatever attribute the user chooses to follow the guidelines of the project, therefore, now the user can select their desired attribute and update it!
+**Updates:** I made it so that the sort feature can sort based on whatever attribute the user chooses to follow the guidelines of the project, therefore, now the user can select their desired attribute and update it! Also added server side sorting to the category model! 
 
 ## Logic/Pseudocode
 
@@ -67,3 +67,8 @@ Regarding sorting or searching, I think sorting the data would be more beneficia
   - Create function to iterate and find the index called: getColumnIndex using a for loop that returns i.
   - Use `$('#sortAttribute').val();` to retrieve the user selected value
   - return `isNaN(aValue) ? aValue.localeCompare(bValue) : parseFloat(aValue) - parseFloat(bValue);` use this return statement to compare the value using its appropriate data type
+
+## Server Side Sorting
+- added server side sorting to the category model 
+- used the .order() method in the controller for the category model and added a drop menu for the HTML file
+- drop down menu return the parameter to sort by 
