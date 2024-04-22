@@ -60,6 +60,16 @@
     function getColumnIndex(attribute) {
       // select the column headers in the table with class 'products-table'
       const headers = $('.products-table th');
+      // iterate through the headers to find the index of the attribute
+      for (let i = 0; i < headers.length; i++) {
+        // compare the text of the header with the attribute name
+        if ($(headers[i]).text().toLowerCase() === attribute) {
+          // return the index if found
+          return i;
+        }
+      }
+      // return -1 if the attribute is not found
+      return -1;
     }
   });
 </script>
