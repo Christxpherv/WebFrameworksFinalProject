@@ -47,3 +47,12 @@
         // get the value of the attribute for the current row
         const aValue = $(a).find('td').eq(getColumnIndex(attribute)).text();
         const bValue = $(b).find('td').eq(getColumnIndex(attribute)).text();
+
+        // sort alphabetically for string attributes
+        return isNaN(aValue) ? aValue.localeCompare(bValue)
+
+      // empty the tbody and append the sorted rows
+      table.find('tbody').empty().append(rows);
+    });
+  });
+</script>
