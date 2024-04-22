@@ -1,14 +1,19 @@
-<%# clickable to sort the categories by their name %>
-<%= link_to "Sort by Name", "#sorted", id: "sortByName", class: "sort-link" %>
+<%# use the GET method to send a request to the server %>
+<%= form_tag(categories_path, method: :get) do %>
+  <%# create a dropdown menu for sorting options. The selected option is determined by params[:sort_by] %>
+  <%= select_tag :sort_by, options_for_select({ "Name" => "name", "Description" => "description", "Status" => "status" }, params[:sort_by]), class: "sort-dropdown" %>
+  <%# create a submit button labeled "Sort" %>
+  <%= submit_tag "Sort", class: "btn btn-primary" %>
+<% end %>
 
-<%# create a table of the categories, resembling an actual database  %>
+<%# create a table of the categories, resembling an actual database %>
 <table class="categories-table">
   <thead>
     <tr>
       <%# categories/columns %>
-      <th class="sortable">Name</th>
-      <th class="sortable">Description</th>
-      <th class="sortable">Status</th> 
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th> 
     </tr>
   </thead>
   <tbody>
@@ -22,3 +27,5 @@
     <% end %>
   </tbody>
 </table>
+
+
