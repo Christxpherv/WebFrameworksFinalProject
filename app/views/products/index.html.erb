@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Table</title>
-</head>
-<body>
+<%# dropdown menu that allows user to select the attribute to sort by %>
+<select id="sortAttribute">
+  <option value="price">Price</option>
+  <option value="name">Name</option>
+  <option value="quantity">Quantity</option>
+</select>
 
-<%# clickable to sort the products by their price %>
-<%= link_to "Sort by Price", "#sorted", id: "sortByPrice", class: "sort-link" %>
+<%# button to sort the products by the selected attribute %>
+<button id="sortButton">Sort</button>
 
 <%# create a table of the products and its categories, like an actual database  %>
 <table class="products-table">
@@ -21,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <%# iterate through the data in products and get its attributes to create a row %>
+   <%# iterate through the data in products and get its attributes to create a row %>
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
@@ -34,33 +32,4 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-  $(document).ready(function() {
-    // event listener for the click action 
-    $('#sortByPrice').on('click', function(e) {
-      e.preventDefault(); 
-      
-      // notify the console that the link was clicked (for debugging purposes)
-      console.log("Sort by Price link clicked."); 
-      
-      // get the table and its rows
-      const table = $('.products-table');
-      const rows = table.find('tbody > tr').get();
-
-      // sort the rows by the price of the product
-      rows.sort((a, b) => {
-        const aValue = parseFloat($(a).find('td').eq(1).text()); 
-        const bValue = parseFloat($(b).find('td').eq(1).text()); 
-        // notify the console of the values of the products
-        console.log("aValue:", aValue);
-        console.log("bValue:", bValue);
-        // sort the products by their price in ascending order
-        return aValue - bValue;
-      });
-
-      table.find('tbody').empty().append(rows);
-    });
-  });
 </script>
-</body>
-</html>
-
